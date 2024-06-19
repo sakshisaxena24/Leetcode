@@ -1,0 +1,25 @@
+
+"Actors and Directors Who Cooperated At Least Three Times" is a problem on LeetCode that asks users to find all pairs
+of actor_id and director_id where the actor has worked with the director at least three times.
+The result table should be returned in any order, and the format is actor_id and director_id.
+
+LeetCode
+Actors and Directors Who Cooperated At Least Three Times - LeetCode
+For example, if the input is:
+1 |1 | 0
+1 |1 | 1
+1 |1 | 2
+1 | 2 | 3
+1 | 2 | 4
+2 | 1 | 5
+2 | 1 | 6
+The output would be: 1 | 1.
+
+solution:
+
+SELECT actor_id, director_id
+FROM ActorDirector
+GROUP BY actor_id, director_id
+HAVING COUNT(*) >= 3;
+
+#COUNT(*) then counts how many rows are in each group
